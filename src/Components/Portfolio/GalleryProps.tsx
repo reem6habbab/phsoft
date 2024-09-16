@@ -10,3 +10,5 @@ export interface GalleryProps {
 export interface GalleriesProps {
   galleries: GalleryProps[]; // Accept an array of SlideProps
 }
+
+//nawras
