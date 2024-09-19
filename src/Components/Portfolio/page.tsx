@@ -1,16 +1,12 @@
 "use client";
-
 import { useEffect } from "react";
 import { GalleriesProps, GalleryProps } from "./GalleryProps";
 import ImageGallery from "./ImageGallery";
-import Filter from "./Filter";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Portfolio() {
-  const [activeTag, setActiveTag] = useState("All");
-  let tagList = ["All", "App", "Card", "Web"];
-  let dataGalleries: GalleryProps[] = [
+  const [listOfGalleries, setListOfGalleries] = useState<any[]>([]);
+  const dataGalleries: GalleryProps[] = [
     {
       id: "1",
       srcImage: "/assets/img/portfolio/portfolio-1.jpg",
@@ -55,26 +51,20 @@ export default function Portfolio() {
     },
   ];
 
-  function handleTag(tag: string): void {
-    setActiveTag(tag);
-  }
+  useEffect(() => {
+    setListOfGalleries(dataGalleries);
+  },[]);
 
-  const filterTags = (array: GalleryProps[]): GalleryProps[] => {
-    if (activeTag.toLowerCase() == "all") {
-      return array;
+  const filterGallery = (val: string) => {
+    if (val === "All") {
+      setListOfGalleries(dataGalleries);
     } else {
-      return array.filter(
-        (el) =>
-          el.categoryName.toLocaleLowerCase() == activeTag.toLocaleLowerCase()
-      );
+      let filterGallery = dataGalleries.filter((x) => x.categoryName == val);
+      if (filterGallery) {
+        setListOfGalleries(filterGallery);
+      }
     }
   };
-
-  let filteredList = filterTags(dataGalleries);
-
-  // const filterGallery = (): void => {
-  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % dataSlider.length);
-  // };
 
   return (
     <>
@@ -83,18 +73,36 @@ export default function Portfolio() {
           <div className="row" data-aos="fade-up">
             <div className="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
-                <Filter
-                  tagList={tagList}
-                  activeTag={activeTag}
-                  handleTag={handleTag}
-                />
+                <li
+                  onClick={() => filterGallery("All")}
+                  data-filter="*"
+                  className="filter-active"
+                >
+                  {" "}
+                  All{" "}
+                </li>
+                <li
+                  onClick={() => filterGallery("App")}
+                  data-filter=".filter-app"
+                >
+                  App
+                </li>
+                <li
+                  onClick={() => filterGallery("Card")}
+                  data-filter=".filter-card"
+                >
+                  Card
+                </li>
+                <li
+                  onClick={() => filterGallery("Web")}
+                  data-filter=".filter-web"
+                >
+                  Web
+                </li>
               </ul>
             </div>
           </div>
-
-          {filteredList.map((el, i) => (
-            <ImageGallery galleries={filteredList} key={el.id} />
-          ))}
+          <ImageGallery galleries={listOfGalleries} />
         </div>
       </section>
     </>
