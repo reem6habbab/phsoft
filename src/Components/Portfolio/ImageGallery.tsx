@@ -15,8 +15,8 @@ export default function ImageGallery({ galleries }: GalleriesProps) {
                 src={item.srcImage}
                 className="img-fluid"
                 alt=""
-                width={500} // Specify the width
-                height={300} // Specify the height
+                width={1000} // Specify the width
+                height={600} // Specify the height
               />
               <div className="portfolio-info">
                 <h4>{item.name}</h4>

@@ -3,11 +3,14 @@
 import { useEffect } from "react";
 import { GalleriesProps, GalleryProps } from "./GalleryProps";
 import ImageGallery from "./ImageGallery";
+import Filter from "./Filter";
+import Image from "next/image";
+import { useState } from "react";
+
 export default function Portfolio() {
-  // const filterGallery = (): void => {
-  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % dataSlider.length);
-  // };
-  let dataGalleries: GalleryProps [] = [
+  const [activeTag, setActiveTag] = useState("All");
+  let tagList = ["All", "App", "Card", "Web"];
+  let dataGalleries: GalleryProps[] = [
     {
       id: "1",
       srcImage: "/assets/img/portfolio/portfolio-1.jpg",
@@ -49,10 +52,30 @@ export default function Portfolio() {
       name: "Web 1",
       categoryName: "Web",
       categoryId: "2",
-    }
+    },
   ];
 
- 
+  function handleTag(tag: string): void {
+    setActiveTag(tag);
+  }
+
+  const filterTags = (array: GalleryProps[]): GalleryProps[] => {
+    if (activeTag.toLowerCase() == "all") {
+      return array;
+    } else {
+      return array.filter(
+        (el) =>
+          el.categoryName.toLocaleLowerCase() == activeTag.toLocaleLowerCase()
+      );
+    }
+  };
+
+  let filteredList = filterTags(dataGalleries);
+
+  // const filterGallery = (): void => {
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % dataSlider.length);
+  // };
+
   return (
     <>
       <section id="portfolio" className="portfolio">
@@ -60,16 +83,18 @@ export default function Portfolio() {
           <div className="row" data-aos="fade-up">
             <div className="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
-                <li data-filter="*" className="filter-active">
-                  All
-                </li>
-                <li data-filter=".filter-app">App</li>
-                <li data-filter=".filter-card">Card</li>
-                <li data-filter=".filter-web">Web</li>
+                <Filter
+                  tagList={tagList}
+                  activeTag={activeTag}
+                  handleTag={handleTag}
+                />
               </ul>
             </div>
           </div>
-          <ImageGallery  galleries={dataGalleries}/>
+
+          {filteredList.map((el, i) => (
+            <ImageGallery galleries={filteredList} key={el.id} />
+          ))}
         </div>
       </section>
     </>
