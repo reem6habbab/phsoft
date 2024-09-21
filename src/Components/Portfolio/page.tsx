@@ -1,11 +1,10 @@
 "use client";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { GalleriesProps, GalleryProps } from "./GalleryProps";
 import ImageGallery from "./ImageGallery";
 import { useState } from "react";
 
 export default function Portfolio() {
-  const [listOfGalleries, setListOfGalleries] = useState<any[]>([]);
   const dataGalleries: GalleryProps[] = [
     {
       id: "1",
@@ -50,21 +49,20 @@ export default function Portfolio() {
       categoryId: "2",
     },
   ];
-
+  const [GalleryList, setGalleryList] = useState<GalleryProps[]>([]);
   useEffect(() => {
-    setListOfGalleries(dataGalleries);
-  },[]);
-
-  const filterGallery = (val: string) => {
-    if (val === "All") {
-      setListOfGalleries(dataGalleries);
+    setGalleryList(dataGalleries);
+  }, []);
+  function filterGalleries(cateName: String) {
+    if (cateName == "All") {
+      setGalleryList(dataGalleries);
     } else {
-      let filterGallery = dataGalleries.filter((x) => x.categoryName == val);
-      if (filterGallery) {
-        setListOfGalleries(filterGallery);
-      }
+      let dataFilter = dataGalleries.filter(
+        (item) => item.categoryName == cateName
+      );
+      setGalleryList(dataFilter);
     }
-  };
+  }
 
   return (
     <>
@@ -74,35 +72,18 @@ export default function Portfolio() {
             <div className="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li
-                  onClick={() => filterGallery("All")}
-                  data-filter="*"
+                  onClick={() => filterGalleries("All")}
                   className="filter-active"
                 >
-                  {" "}
-                  All{" "}
+                  All
                 </li>
-                <li
-                  onClick={() => filterGallery("App")}
-                  data-filter=".filter-app"
-                >
-                  App
-                </li>
-                <li
-                  onClick={() => filterGallery("Card")}
-                  data-filter=".filter-card"
-                >
-                  Card
-                </li>
-                <li
-                  onClick={() => filterGallery("Web")}
-                  data-filter=".filter-web"
-                >
-                  Web
-                </li>
+                <li onClick={() => filterGalleries("App")}>App</li>
+                <li onClick={() => filterGalleries("Card")}>Card</li>
+                <li onClick={() => filterGalleries("Web")}>Web</li>
               </ul>
             </div>
           </div>
-          <ImageGallery galleries={listOfGalleries} />
+          <ImageGallery galleries={GalleryList} />
         </div>
       </section>
     </>
