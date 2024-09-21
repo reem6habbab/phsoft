@@ -32,14 +32,14 @@ function Home() {
   ];
 
   let dataHeaderPage = [
-    { name: "Home", link: "index.html" },
-    { name: "About", link: "about.html" },
-    { name: "Services", link: "services.html" },
-    { name: "Testimonials", link: "testimonials.html" },
-    { name: "Pricing", link: "pricing.html" },
-    { name: "Portfolio", link: "portfolio.html" },
-    { name: "Blog", link: "blog.html" },
-    { name: "Contact", link: "contact.html" },
+    { name: "Home", link: "/" },
+    { name: "About", link: "/About" },
+    { name: "Services", link: "" },
+    { name: "Testimonials", link: "" },
+    { name: "Pricing", link: "" },
+    { name: "Portfolio", link: "" },
+    { name: "Blog", link: "" },
+    { name: "Contact", link: "" },
   ];
   let dataCta = {
     head: "We've created more than 200 websites this year!",
@@ -67,7 +67,7 @@ export default Home;
 // <!-- Vendor JS Files -->
 import TopHeader from "@/Components/Header/TopHeader/TopHeader";
 import Header from "@/Components/Header/Header";
-import Footer from "../Footer/page";
+import Footer from "../../Components/Footer/page";
 import Slider from "../../Components/Slider/page";
 import Cta from "../../Components/Cta/page";
 import Services from "@/Components/Services";

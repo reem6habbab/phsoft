@@ -1,6 +1,6 @@
 import Header from "@/app/Header/page";
 import MapSection from "../MapSection/page";
-import Footer from "@/app/Footer/page";
+import Footer from "@/Components/Footer/page";
 import Contact from "../Contact/page";
 
 export default function Breadcrumbs() {

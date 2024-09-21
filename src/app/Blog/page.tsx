@@ -1,4 +1,4 @@
-import Footer from "../Footer/page";
+import Footer from "../../Components/Footer/page";
 import BlogEntry from "./BlogEntry";
 import Breadcrumbs from "./Breadcrumbs";
 

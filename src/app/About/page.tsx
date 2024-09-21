@@ -29,14 +29,14 @@ import OurTeam from "./OurTeam";
 import OurSkills from "./OurSkills";
 import OurClients from "../OurClients/page";
 import Header from "../../Components/Header/Header";
-import Footer from "../Footer/page";
+import Footer from "../../Components/Footer/page";
 import AOS from "aos";
 import { useEffect } from "react";
 
 export default function About() {
   let dataHeaderPage = [
-    { name: "Home", link: "index.html" },
-    { name: "About", link: "about.html" },
+    { name: "Home", link: "/" },
+    { name: "About", link: "/About" },
     { name: "Services", link: "services.html" },
     { name: "Testimonials", link: "testimonials.html" },
     { name: "Pricing", link: "pricing.html" },
