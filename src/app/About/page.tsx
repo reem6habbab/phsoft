@@ -28,22 +28,12 @@ import AboutUs from "./AboutUs";
 import OurTeam from "./OurTeam";
 import OurSkills from "./OurSkills";
 import OurClients from "../OurClients/page";
-import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/page";
 import AOS from "aos";
 import { useEffect } from "react";
 
 export default function About() {
-  let dataHeaderPage = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "/About" },
-    { name: "Services", link: "services.html" },
-    { name: "Testimonials", link: "testimonials.html" },
-    { name: "Pricing", link: "pricing.html" },
-    { name: "Portfolio", link: "portfolio.html" },
-    { name: "Blog", link: "blog.html" },
-    { name: "Contact", link: "contact.html" },
-  ];
+
   useEffect(() => {
     AOS.init({
       easing: "ease-out-quad",
@@ -52,7 +42,6 @@ export default function About() {
   }, []);
   return (
     <>
-      <Header dataHeaderPage={dataHeaderPage} />
       <main id="main" className="">
         <Breadcrumbs />
         <AboutUs />
