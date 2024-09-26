@@ -7,14 +7,13 @@ import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
     AOS.init({
-      easing: 'ease-out-quad',
+      easing: "ease-out-quad",
       duration: 1000,
     });
-  }, [])
+  }, []);
   return (
     <>
-    
-       <Home />
+      <Home />
     </>
   );
 }

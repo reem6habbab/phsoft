@@ -21,26 +21,8 @@ import "../../../public/assets/vendor/swiper/swiper-bundle.min.css";
 // <!-- Template Main CSS File -->
 import "../../../public/assets/css/style.css";
 
-let dData = { phone: "nnnn", mail: "nnnnnnnn@nnn.com" };
-
 function Home() {
-  let social_links = [
-    { name: "twitter", icon: "bi bi-twitter" },
-    { name: "facebook", icon: "bi bi-facebook" },
-    { name: "instagram", icon: "bi bi-instagram" },
-    { name: "linkedin", icon: "bi bi-linkedin" },
-  ];
-
-  let dataHeaderPage = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "/About" },
-    { name: "Services", link: "" },
-    { name: "Testimonials", link: "" },
-    { name: "Pricing", link: "" },
-    { name: "Portfolio", link: "" },
-    { name: "Blog", link: "" },
-    { name: "Contact", link: "" },
-  ];
+ 
   let dataCta = {
     head: "We've created more than 200 websites this year!",
     paragraph:
@@ -49,8 +31,6 @@ function Home() {
 
   return (
     <>
-      <TopHeader socialLinks={social_links} dData={dData} />
-      <Header dataHeaderPage={dataHeaderPage} />
       <Slider />
       <Cta dataCta={dataCta} />
       <Services />
@@ -65,8 +45,6 @@ function Home() {
 
 export default Home;
 // <!-- Vendor JS Files -->
-import TopHeader from "@/Components/Header/TopHeader/TopHeader";
-import Header from "@/Components/Header/Header";
 import Footer from "../../Components/Footer/page";
 import Slider from "../../Components/Slider/page";
 import Cta from "../../Components/Cta/page";

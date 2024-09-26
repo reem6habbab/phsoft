@@ -1,9 +1,44 @@
+"use client"
 import { HeaderPageProps } from "./HeaderPageProps";
+import { useEffect, useRef } from 'react';
 
 export default function Header({ dataHeaderPage }: HeaderPageProps) {
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const selectHeader = document.querySelector("#header") as HTMLElement | null;
+
+    
+    if (!selectHeader) return;
+
+    const headerOffset = selectHeader.offsetTop;
+    const nextElement = selectHeader.nextElementSibling;
+
+    const headerFixed = () => {
+      if (headerOffset - window.scrollY <= 0) {
+        selectHeader.classList.add("fixed-top");
+        nextElement?.classList.add("scrolled-offset");
+      } else {
+        selectHeader.classList.remove("fixed-top");
+        nextElement?.classList.remove("scrolled-offset");
+      }
+    };
+
+    // Initial check on component mount
+    headerFixed();
+
+    // Set up scroll event listener
+    window.addEventListener('scroll', headerFixed);
+
+    // Cleanup function to remove event listener when component unmounts
+    return () => {
+      window.removeEventListener('scroll', headerFixed);
+    };
+  }, []);
+
   return (
     <>
-      <header id="header" className="d-flex align-items-center">
+      <header ref={headerRef} id="header" className="d-flex align-items-center" >
         <div className="container d-flex justify-content-between">
           <div className="logo">
             <h1 className="text-light">
