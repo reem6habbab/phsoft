@@ -36,7 +36,6 @@ function Home() {
       <Services />
       <Portfolio />
       <OurClients />
-      <Footer />
       {/* <Breadcrumbs /> */}
       {/* <About/> */}
     </>
@@ -45,7 +44,6 @@ function Home() {
 
 export default Home;
 // <!-- Vendor JS Files -->
-import Footer from "../../Components/Footer/page";
 import Slider from "../../Components/Slider/page";
 import Cta from "../../Components/Cta/page";
 import Services from "@/Components/Services";

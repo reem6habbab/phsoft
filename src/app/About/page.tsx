@@ -28,7 +28,6 @@ import AboutUs from "./AboutUs";
 import OurTeam from "./OurTeam";
 import OurSkills from "./OurSkills";
 import OurClients from "../OurClients/page";
-import Footer from "../../Components/Footer/page";
 import AOS from "aos";
 import { useEffect } from "react";
 
@@ -49,7 +48,6 @@ export default function About() {
         <OurSkills />
         <OurClients />
       </main>
-      <Footer />
     </>
   );
 }

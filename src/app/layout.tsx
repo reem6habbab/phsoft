@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/Components/Header/Header";
 import TopHeader from "@/Components/Header/TopHeader/TopHeader";
+import Footer from "@/Components/Footer/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +40,7 @@ export default function RootLayout({
         <TopHeader socialLinks={social_links} dData={dData} />
         <Header dataHeaderPage={dataHeaderPage} />
         {children}
+        <Footer />
       </body>
     </html>
   );

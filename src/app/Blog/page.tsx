@@ -1,11 +1,9 @@
-import Footer from "../../Components/Footer/page";
 import BlogEntry from "./BlogEntry";
 import Breadcrumbs from "./Breadcrumbs";
 
 export default function Blog() {
   return (
     <>
-      {/* <TopBar /> */}
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -46,31 +44,17 @@ export default function Blog() {
         />
         <link href="../../../assets/css/style.css" rel="stylesheet" />
       </head>
-      {/* <Header /> */}
       <main id="main" className="">
         <Breadcrumbs />
         <BlogEntry />
        
       </main>
-      <Footer />
       <a
         href="#"
         className="back-to-top d-flex align-items-center justify-content-center"
       >
         <i className="bi bi-arrow-up-short"></i>
       </a>
-
-      {/* <!-- Vendor JS Files --> */}
-      <script src="../../../assets/vendor/aos/aos.js"></script>
-      <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script src="../../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-      <script src="../../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-      <script src="../../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-      <script src="../../../assets/vendor/waypoints/noframework.waypoints.js"></script>
-      <script src="../../../assets/vendor/php-email-form/validate.js"></script>
-
-      {/* <!-- Template Main JS File --> */}
-      <script src="../../../assets/js/main.js"></script>
     </>
   );
 }
