@@ -50,10 +50,13 @@ export default function Portfolio() {
     },
   ];
   const [GalleryList, setGalleryList] = useState<GalleryProps[]>([]);
+  const [isLiActive, setIsLiActive] = useState<String>("");
   useEffect(() => {
     setGalleryList(dataGalleries);
+    setIsLiActive("All")
   }, []);
   function filterGalleries(cateName: String) {
+    setIsLiActive(cateName);
     if (cateName == "All") {
       setGalleryList(dataGalleries);
     } else {
@@ -73,13 +76,28 @@ export default function Portfolio() {
               <ul id="portfolio-flters">
                 <li
                   onClick={() => filterGalleries("All")}
-                  className="filter-active"
+                  className={isLiActive == "All" ? "filter-active" : ""}
                 >
                   All
                 </li>
-                <li onClick={() => filterGalleries("App")}>App</li>
-                <li onClick={() => filterGalleries("Card")}>Card</li>
-                <li onClick={() => filterGalleries("Web")}>Web</li>
+                <li
+                  onClick={() => filterGalleries("App")}
+                  className={isLiActive == "App" ? "filter-active" : ""}
+                >
+                  App
+                </li>
+                <li
+                  onClick={() => filterGalleries("Card")}
+                  className={isLiActive == "Card" ? "filter-active" : ""}
+                >
+                  Card
+                </li>
+                <li
+                  onClick={() => filterGalleries("Web")}
+                  className={isLiActive == "Web" ? "filter-active" : ""}
+                >
+                  Web
+                </li>
               </ul>
             </div>
           </div>
