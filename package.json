@@ -11,7 +11,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "jquery": "^3.7.1",
-    "next": "^14.2.2",
+    "next": "^14.2.13",
     "phsoft": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
