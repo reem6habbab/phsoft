@@ -53,7 +53,7 @@ export default function Portfolio() {
   const [isLiActive, setIsLiActive] = useState<String>("");
   useEffect(() => {
     setGalleryList(dataGalleries);
-    setIsLiActive("All")
+    setIsLiActive("All");
   }, []);
   function filterGalleries(cateName: String) {
     setIsLiActive(cateName);
