@@ -29,6 +29,7 @@ let dataHeaderPage = [
   { name: "Blog", link: "" },
   { name: "Contact", link: "" },
 ];
+
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -1,14 +1,15 @@
-"use client"
+"use client";
 import { HeaderPageProps } from "./HeaderPageProps";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export default function Header({ dataHeaderPage }: HeaderPageProps) {
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const selectHeader = document.querySelector("#header") as HTMLElement | null;
+    const selectHeader = document.querySelector(
+      "#header"
+    ) as HTMLElement | null;
 
-    
     if (!selectHeader) return;
 
     const headerOffset = selectHeader.offsetTop;
@@ -28,17 +29,17 @@ export default function Header({ dataHeaderPage }: HeaderPageProps) {
     headerFixed();
 
     // Set up scroll event listener
-    window.addEventListener('scroll', headerFixed);
+    window.addEventListener("scroll", headerFixed);
 
     // Cleanup function to remove event listener when component unmounts
     return () => {
-      window.removeEventListener('scroll', headerFixed);
+      window.removeEventListener("scroll", headerFixed);
     };
   }, []);
-
+ 
   return (
     <>
-      <header ref={headerRef} id="header" className="d-flex align-items-center" >
+      <header ref={headerRef} id="header" className="d-flex align-items-center">
         <div className="container d-flex justify-content-between">
           <div className="logo">
             <h1 className="text-light">
@@ -49,24 +50,17 @@ export default function Header({ dataHeaderPage }: HeaderPageProps) {
           </div>
 
           <nav id="navbar" className="navbar">
-            <ul>
-              {/* <li>
-                <a className="active" href="index.html">
-                  Home
-                </a>
-              </li> */}
+            <ul> 
               {dataHeaderPage.map((element, index) => {
                 let active =
                   element.name === dataHeaderPage[0].name ? "active" : "";
                 console.log(active);
                 return (
-                  <>
-                    <li key={element.name}>
-                      <a href={element.link} className={active}>
-                        {element.name}
-                      </a>
-                    </li>
-                  </>
+                  <li key={element.name}>
+                    <a href={element.link} className={active}>
+                      {element.name}
+                    </a>
+                  </li>
                 );
               })}
             </ul>

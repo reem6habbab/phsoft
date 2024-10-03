@@ -32,7 +32,6 @@ import AOS from "aos";
 import { useEffect } from "react";
 
 export default function About() {
-
   useEffect(() => {
     AOS.init({
       easing: "ease-out-quad",
@@ -42,7 +41,19 @@ export default function About() {
   return (
     <>
       <main id="main" className="">
-        <Breadcrumbs />
+        <section id="breadcrumbs" className="breadcrumbs">
+          <div className="container">
+            <div className="d-flex justify-content-between align-items-center">
+              <h2>About</h2>
+              <ol>
+                <li>
+                  <a href="index.html">Home</a>
+                </li>
+                <li>About</li>
+              </ol>
+            </div>
+          </div>
+        </section>
         <AboutUs />
         <OurTeam />
         <OurSkills />
