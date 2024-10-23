@@ -23,13 +23,16 @@ import "../../../public/assets/vendor/swiper/swiper-bundle.min.css";
 // <!-- Template Main CSS File -->
 import "../../../public/assets/css/style.css";
 
-import Breadcrumbs from "./Breadcrumbs";
+// import Breadcrumbs from "./Breadcrumbs";
 import AboutUs from "./AboutUs";
-import OurTeam from "./OurTeam";
+import OurTeam from "../../Components/Teams/Teams";
 import OurSkills from "./OurSkills";
-import OurClients from "../OurClients/page";
+import OurClients from "../../Components/Clients/page";
 import AOS from "aos";
 import { useEffect } from "react";
+import Skills from "../Services/page";
+import Teams from "../../Components/Teams/Teams";
+import Clients from "../../Components/Clients/page";
 
 export default function About() {
   useEffect(() => {
@@ -55,9 +58,9 @@ export default function About() {
           </div>
         </section>
         <AboutUs />
-        <OurTeam />
-        <OurSkills />
-        <OurClients />
+        <Teams />
+        <Skills/>
+        <Clients />
       </main>
     </>
   );

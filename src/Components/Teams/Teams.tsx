@@ -25,7 +25,7 @@ let dataOurTeam = {
   ],
 };
 
-export default function OurTeam() {
+export default function Teams() {
   const divBoxes = dataOurTeam.employees.map((item, index) => (
     <div className="col-lg-3 col-md-6 d-flex align-items-stretch">
       <div

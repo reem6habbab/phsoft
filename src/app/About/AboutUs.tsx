@@ -32,6 +32,8 @@ export default function AboutUs() {
       className="col-md-6 icon-box aos-init aos-animate"
       data-aos="fade-up"
       data-aos-delay={index * 100}
+      // data-aos-offset="500"
+      data-aos-duration="2000"
     >
       <i className={item.i}></i>
       <h4>{item.h4}</h4>

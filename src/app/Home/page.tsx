@@ -48,7 +48,7 @@ import Slider from "../../Components/Slider/page";
 import Cta from "../../Components/Cta/page";
 import Services from "@/Components/Services";
 import Portfolio from "../../Components/Portfolio/page";
-import OurClients from "../OurClients/page";
+import OurClients from "../../Components/Clients/page";
 import Breadcrumbs from "../Contact/Breadcrumbs/page";
 import About from "../About/page";
 import favicon from "../../../public/assets/img/favicon.png";

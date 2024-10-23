@@ -1,4 +1,4 @@
-export default function OurClients() {
+export default function Clients() {
   return (
     <>
       <section id="clients" className="clients">
